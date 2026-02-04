@@ -4,17 +4,17 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 load_dotenv()
 
-def ingestao_bronze():
+def ingestao_raw():
     dataset = "vatsalmavani/spotify-dataset"
-    pasta_bronze = "bronze"
-    os.makedirs(pasta_bronze, exist_ok=True)
+    pasta_bronze = "raw"
+    os.makedirs(pasta_raw, exist_ok=True)
 
     api = KaggleApi()
     api.authenticate()
 
     print(f"Baixando dados do Spotify...")
-    api.dataset_download_files(dataset, path=pasta_bronze, unzip=True)
-    print(f"Arquivos na Bronze: {os.listdir(pasta_bronze)}")
+    api.dataset_download_files(dataset, path=pasta_raw, unzip=True)
+    print(f"Arquivos raw: {os.listdir(pasta_raw)}")
 
 if __name__ == "__main__":
-    ingestao_bronze()
+    ingestao_raw()
